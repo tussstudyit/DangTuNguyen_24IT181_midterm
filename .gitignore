@@ -1,0 +1,25 @@
+# Binaries
+ls
+ls.exe
+*.exe
+
+# Object files
+*.o
+src/*.o
+
+# Debug and symbols
+*.dSYM/
+*.pdb
+*.ilk
+
+# OS and Editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary test directories
+test_output/
+test_sandbox/
