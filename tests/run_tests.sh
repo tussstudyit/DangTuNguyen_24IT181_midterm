@@ -5,6 +5,10 @@
 BIN="./ls"
 if [ ! -f "$BIN" ] && [ -f "./ls.exe" ]; then
     BIN="./ls.exe"
+elif [ ! -f "$BIN" ] && [ ! -f "./ls.exe" ]; then
+    echo "Binary not found, running make..."
+    make
+    if [ -f "./ls" ]; then BIN="./ls"; else BIN="./ls.exe"; fi
 fi
 
 TOTAL=0

@@ -3,7 +3,14 @@
 
 $bin = ".\ls.exe"
 if (-not (Test-Path $bin)) {
-    $bin = ".\ls"
+    if (Test-Path ".\ls") {
+        $bin = ".\ls"
+    } else {
+        Write-Host "Binary not found, running make..." -ForegroundColor Yellow
+        make
+        if (Test-Path ".\ls.exe") { $bin = ".\ls.exe" }
+        elseif (Test-Path ".\ls") { $bin = ".\ls" }
+    }
 }
 
 $total = 0
