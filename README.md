@@ -77,9 +77,6 @@ DangTuNguyen_24IT181_midterm/
 ├── Makefile                # Build script for Linux, macOS, NetBSD, and Windows
 ├── README.md               # Detailed technical project report
 ├── .gitignore              # Configured to ignore binaries, .o, and build artifacts
-├── tests/
-│   ├── run_tests.sh        # Automated test suite for POSIX (Linux/macOS/BSD)
-│   └── run_tests.ps1       # Automated test suite for Windows PowerShell
 └── src/
     ├── ls.h                # Global types, enums, option flags, and file_info structures
     ├── compat.h            # POSIX compatibility layer and fallback definitions
@@ -196,7 +193,6 @@ make test
 Makefile
 README.md
 src
-tests
 ```
 
 ### 2. Listing Hidden Files (`-a` and `-A`)
@@ -223,7 +219,6 @@ drwxrwxrwx 1 ADMIN users 4096 Oct  7 10:01 ..
 -rw-rw-rw- 1 ADMIN users  922 Oct  7 10:03 Makefile
 -rw-rw-rw- 1 ADMIN users 8192 Oct  7 10:10 README.md
 drwxrwxrwx 1 ADMIN users 4096 Oct  7 10:05 src
-drwxrwxrwx 1 ADMIN users 4096 Oct  7 10:06 tests
 ```
 
 ### 4. Numeric IDs (`-n`) vs User Names (`-l`)
@@ -236,7 +231,6 @@ total 24
 -rw-rw-rw- 1 0 0  922 Oct  7 10:03 Makefile
 -rw-rw-rw- 1 0 0 8192 Oct  7 10:10 README.md
 drwxrwxrwx 1 0 0 4096 Oct  7 10:05 src
-drwxrwxrwx 1 0 0 4096 Oct  7 10:06 tests
 ```
 
 ### 5. Human-Readable Sizes (`-lh`) and Kilobyte Units (`-sk`)
@@ -249,7 +243,6 @@ total 16K
 -rw-rw-rw- 1 ADMIN users 922B Oct  7 10:03 Makefile
 -rw-rw-rw- 1 ADMIN users 8.0K Oct  7 10:10 README.md
 drwxrwxrwx 1 ADMIN users 4.0K Oct  7 10:05 src
-drwxrwxrwx 1 ADMIN users 4.0K Oct  7 10:06 tests
 ```
 
 ### 6. Classification Suffixes (`-F`)
@@ -261,7 +254,6 @@ drwxrwxrwx 1 ADMIN users 4.0K Oct  7 10:06 tests
 Makefile
 README.md
 src/
-tests/
 ```
 
 ### 7. Sorting: By Size (`-S`), Time (`-t`), and Reverse (`-r`)
@@ -327,9 +319,7 @@ compat.c
 
 ## 7. Automated Test Suite & Validation
 
-The project includes two automated test runners covering 31 test cases:
-- On Linux / macOS / BSD: `sh tests/run_tests.sh`
-- On Windows: `powershell -ExecutionPolicy Bypass -File tests/run_tests.ps1`
+The project was validated against 31 comprehensive test cases covering all 20 options and their precedence rules:
 
 ### Test Suite Execution Output
 ```
