@@ -1,6 +1,6 @@
 # Midterm Project: Implementation of UNIX ls(1)
 
-- **Student Name:** Đặng Tứ Nguyên (Dang Tu Nguyen)
+- **Student Name:** Đặng Tú Nguyên 
 - **Student ID:** 24IT181
 - **Course:** Operating Systems / Systems Programming
 - **Project Name:** `DangTuNguyen_24IT181_midterm`
