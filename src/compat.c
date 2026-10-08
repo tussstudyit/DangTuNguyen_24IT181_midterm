@@ -270,17 +270,7 @@ time_t compat_get_file_time(const struct stat *sb, int time_type) {
 
 long compat_get_file_time_nsec(const struct stat *sb, int time_type) {
     if (!sb) return 0;
-#if defined(__APPLE__) || defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
-    switch (time_type) {
-        case TIME_STATUS_CHANGE:
-            return sb->st_ctimespec.tv_nsec;
-        case TIME_LAST_ACCESS:
-            return sb->st_atimespec.tv_nsec;
-        case TIME_MODIFIED:
-        default:
-            return sb->st_mtimespec.tv_nsec;
-    }
-#elif defined(__linux__) && defined(_POSIX_C_SOURCE) && (_POSIX_C_SOURCE >= 200809L)
+#if defined(__NetBSD__) || defined(__linux__) || (defined(_POSIX_C_SOURCE) && _POSIX_C_SOURCE >= 200809L)
     switch (time_type) {
         case TIME_STATUS_CHANGE:
             return sb->st_ctim.tv_nsec;
@@ -289,6 +279,16 @@ long compat_get_file_time_nsec(const struct stat *sb, int time_type) {
         case TIME_MODIFIED:
         default:
             return sb->st_mtim.tv_nsec;
+    }
+#elif defined(__APPLE__) || defined(__FreeBSD__) || defined(__OpenBSD__)
+    switch (time_type) {
+        case TIME_STATUS_CHANGE:
+            return sb->st_ctimespec.tv_nsec;
+        case TIME_LAST_ACCESS:
+            return sb->st_atimespec.tv_nsec;
+        case TIME_MODIFIED:
+        default:
+            return sb->st_mtimespec.tv_nsec;
     }
 #else
     (void)time_type;
