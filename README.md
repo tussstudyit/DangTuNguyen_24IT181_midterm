@@ -368,7 +368,7 @@ Test Summary: 31 / 31 passed (0 failed)
 
 - **Repository Name:** `DangTuNguyen_24IT181_midterm`
 - **GitHub URL:** [https://github.com/tussstudyit/DangTuNguyen_24IT181_midterm](https://github.com/tussstudyit/DangTuNguyen_24IT181_midterm)
-- **Author:** Đặng Tứ Nguyên
+- **Author:** Đặng Tú Nguyên
 - **Student ID:** 24IT181
 
 All binaries (`ls`, `ls.exe`) and object files (`*.o`) are excluded via `.gitignore` to maintain a clean source repository adhering to professional Git practices.
